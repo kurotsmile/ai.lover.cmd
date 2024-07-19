@@ -1,6 +1,8 @@
 class AI{
 
     onLoad(){
+        cr.setSiteName("AI Lover Commands");
+        cr.setSiteUrl("https://ai-lover-cmd.vercel.app");
         cr.setColor("#a02bc9");
         cr.loadJs("js/commands.js","cmd","show");
         cr.add_btn_top();
@@ -11,8 +13,9 @@ class AI{
     }
 
     show_about(){
-        cr.get("about/"+cr.lang+".html",(data)=>{
+        cr.get("about/"+cr.lang+".html?v="+cr.ver,(data)=>{
             $("#ai_content").html(data);
+            cr.top();
         });
     }
 
@@ -30,6 +33,16 @@ class AI{
 
     show_setting(){
         cr.show_setting();
+    }
+
+    show_pp(){
+        cr.show_pp("#ai_content");
+        cr.top();
+    }
+
+    show_tos(){
+        cr.show_tos("#ai_content");
+        cr.top();
     }
 }
 

@@ -6,6 +6,21 @@ h1, h2 {
     color: #333;
 }
 
+a {
+    color: #a02bc9;
+    margin: 0 10px;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+a:hover {
+    color: orangered;
+    transform: translateY(-3px);
+    text-decoration: none;
+}
+
 .command-section {
     margin-top: 20px;
 }
@@ -65,7 +80,7 @@ footer {
 .animated-text {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #ff3366;
+    color: #a02bc9;
     text-align: center;
     margin-top: 20px;
     animation: fadeInUp 2s ease-in-out infinite alternate;

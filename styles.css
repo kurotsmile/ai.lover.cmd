@@ -65,6 +65,10 @@ a:hover {
     justify-content: center;
     align-items: center;
     background: rgba(0, 0, 0, 0.2);
+    background-image: url("images/robot.png");
+    background-position: 99% 100%;
+    background-repeat: no-repeat;
+    background-size: 7%;
 }
 
 footer {

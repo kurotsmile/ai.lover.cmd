@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+.command-section {
+    margin-top: 20px;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-text {
+    color: #666;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: url('https://i.pinimg.com/564x/71/cc/56/71cc56f8573b3342929baa963477df9c.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.running-text {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .15em solid orange;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange }
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

@@ -12,10 +12,24 @@ h1, h2 {
 
 .card-title {
     font-weight: bold;
+    font-size: small;
 }
 
 .card-text {
     color: #666;
+           
+           font-size: smaller;
+            white-space: nowrap; /* Không ngắt dòng */
+            overflow: hidden; /* Ẩn phần nội dung tràn */
+            text-overflow: ellipsis; /* Thêm dấu ba chấm nếu văn bản bị cắt */
+}
+
+.card {
+    transition: box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
 }
 
 .banner {

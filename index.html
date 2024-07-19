@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    
+
     <title>AI Lover Commands</title>
 
     <link rel="shortcut icon" href="images/icon/favicon.ico" type="image/x-icon">
@@ -58,6 +58,12 @@
                     <a class="nav-link" href="#" onclick="ai.show_contact();return false;">Contact</a>
                 </li>
             </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="ai.show_setting();return false;"><i class="fas fa-wrench"></i> Setting</a>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -69,7 +75,8 @@
 
     <div class="container mt-5" id="ai_content">
         <h1 class="mb-4">AI Lover Command List</h1>
-
+        <button class="btn btn-light btn-sm float-right m-1">List</button>
+        <button class="btn btn-light btn-sm float-right m-1">Grid</button>
         <div class="command-section">
             <h2>Basic Commands</h2>
             <div class="row">

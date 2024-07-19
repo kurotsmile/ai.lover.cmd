@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
     <title>AI Lover Commands</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="shortcut icon" href="images/icon/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/icon/favicon.ico" type="image/x-icon">
 
@@ -27,7 +29,13 @@
     <meta name="msapplication-TileImage" content="images/icon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="styles.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="fontawesome5/css/all.min.css" rel="stylesheet"/>
+    <link href="css/animate.min.css" rel="stylesheet"/>
+    <link href="manifest.json?ver=1.10" rel="manifest" />
+
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="Carrot-Framework-Web/Carrot.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -44,10 +52,10 @@
                     <a class="nav-link" href="#">Commands</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="#" onclick="ai.show_about();return false;">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="#" onclick="ai.show_contact();return false;">Contact</a>
                 </li>
             </ul>
         </div>
@@ -55,11 +63,11 @@
 
     <div class="banner">
         <div class="overlay">
-            <div class="running-text" id="runningText"></div>
+            <span id="txt_banner" class="h1">AI <i class="fas fa-heart animate__heartBeat animate__animated animate__infinite"></i> Lover Command</span>
         </div>
     </div>
 
-    <div class="container mt-5">
+    <div class="container mt-5" id="ai_content">
         <h1 class="mb-4">AI Lover Command List</h1>
 
         <div class="command-section">
@@ -111,9 +119,10 @@
         &copy; 2024 AI Lover. All Rights Reserved.
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/sweetalert2@10.js"></script>
+    <script src="js/animate.css.min.js"></script>
     <script src="js/ai.js"></script>
 </body>
 </html>

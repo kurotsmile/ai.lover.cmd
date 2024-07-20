@@ -20,7 +20,7 @@ class AI{
     }
 
     box_item(data){
-        var empItem=$(`<div class="col-lg-3 col-md-6 mb-4">
+        var empItem=$(`<div class="col-6 col-lg-3 col-md-6 mb-4">
                     <div class="card animate__flipInX animate__animated">
                         <div class="card-body">
                             <h5 class="card-title"><i class="fas fa-comment"></i> ${data.key}</h5>
@@ -28,6 +28,10 @@ class AI{
                         </div>
                     </div>
                 </div>`);
+
+        $(empItem).click(function(){
+            cr_data.info(data);
+        });
         return empItem;
     }
 
@@ -43,6 +47,15 @@ class AI{
     show_tos(){
         cr.show_tos("#ai_content");
         cr.top();
+    }
+
+    loading(){
+        var empLoading=$(`
+            <div class="row text-center">
+                <div class="col-12"><i class="fas fa-spinner fa-spin fa-3x"></i></div>
+            </div>
+        `);
+        return empLoading;
     }
 }
 

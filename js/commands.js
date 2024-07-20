@@ -5,8 +5,10 @@ class AI_Command{
     all_cmd=[];
 
     show(){
+        $("#ai_content").html('');
+        $("#ai_content").append(ai.loading());
         $.getJSON(this.url_data_chat,(data)=>{
-            
+        
             var html='';
             html+='<div class="container mt-5">';
                 html+='<h1 class="mb-4">AI Lover Command List';

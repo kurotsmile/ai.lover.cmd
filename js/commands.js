@@ -50,25 +50,34 @@ class AI_Command{
 
     load_list(data){
         $("#list_cmd_basic").html('');
-        var html='<div class="col-12"><table  class="table table-striped table-hover table-sm"><tbody>';
+        $("#list_cmd_basic").html('<div class="col-12"><table  class="table table-striped table-hover table-sm"><tbody id="all_item_basic"></tbody></table></div>');
         $.each(cr.shuffle(cr.limitItem(data,50)),function(index,c){
-            html+='<tr>';
-                html+='<td>'+c.key+'</td>';
-                html+='<td>'+c.msg+'</td>';
-            html+='</tr>';
+            var empC=ai.cmd.box_item_list(c);
+            $(empC).click(function(){
+                cr_data.info(c);
+            });
+            $("#all_item_basic").append(empC);
         });
-        html+='</tbody></table></div>';
-        $("#list_cmd_basic").html(html);
         
         $("#list_cmd_advanced").html('');
-        html='<div class="col-12"><table  class="table table-striped table-hover table-sm"><tbody>';
+        $("#list_cmd_advanced").html('<div class="col-12"><table  class="table table-striped table-hover table-sm"><tbody id="all_item_advanced"></tbody></table></div>');
         $.each(cr.shuffle(cr.limitItem(data,50)),function(index,c){
-            html+='<tr>';
-                html+='<td>'+c.key+'</td>';
-                html+='<td>'+c.msg+'</td>';
-            html+='</tr>';
+            var empC=ai.cmd.box_item_list(c);
+            $(empC).click(function(){
+                cr_data.info(c);
+            });
+            $("#all_item_advanced").append(empC);
         });
-        $("#list_cmd_advanced").html(html);
+    }
+
+    box_item_list(c){
+        var empItem=$(`
+            <tr role="button">
+                <td>${c.key}</td>
+                <td>${c.msg}</td>
+            </tr>
+        `);
+        return empItem;
     }
 
     show_grid(){

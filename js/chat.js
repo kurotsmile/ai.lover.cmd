@@ -13,6 +13,7 @@ class Ai_Chat{
 
         if(list_return.length>0){
             var c=cr.random(list_return);
+            if(c.link!="") window.open(c.link,"_blank");
             $("#txt_banner").html(c.msg);
         }else{
             $("#txt_banner").html("None Chat!");

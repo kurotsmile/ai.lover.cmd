@@ -57,6 +57,10 @@ class AI{
         `);
         return empLoading;
     }
+
+    ai_chat(){
+        cr.loadJs("js/chat.js","chat","chat");
+    }
 }
 
 var ai;

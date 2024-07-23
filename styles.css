@@ -100,3 +100,27 @@ footer {
         transform: translate3d(0, 0, 0);
     }
 }
+
+#form_chat{
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    border: solid 10px white;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    color: white;
+    text-align: center;
+    background: #80008075;
+}
+
+#form_chat input{
+    color: yellow;
+    border: none;
+    text-align: left;
+    background-color: transparent;
+}
+
+#form_chat i{
+    margin-top: 10px;
+}
+

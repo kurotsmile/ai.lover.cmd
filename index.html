@@ -39,28 +39,28 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#" onclick="ai.cmd.show();return false;">AI Lover</a>
+        <a class="navbar-brand" href="#" onclick="ai.home();return false;">AI Lover</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" onclick="ai.cmd.show();return false;">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item active m-menu" id="m-home">
+                    <a class="nav-link" href="#" onclick="ai.home();return false;">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Commands</a>
+                <li class="nav-item m-menu" id="m-cmd">
+                    <a class="nav-link" href="#">Commands <span class="badge badge-pill bg-white align-text-bottom" id="cm_length">0</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item m-menu" id="m-about">
                     <a class="nav-link" href="#" onclick="ai.show_about();return false;">About</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item m-menu" id="m-contact">
                     <a class="nav-link" href="#" onclick="ai.show_contact();return false;">Contact</a>
                 </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li class="nav-item m-menu">
                     <a class="nav-link" href="#" onclick="ai.show_setting();return false;"><i class="fas fa-wrench"></i> Setting</a>
                 </li>
             </ul>

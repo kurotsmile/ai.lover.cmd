@@ -1,6 +1,9 @@
 class AI{
 
+    cur_menu="home";
+
     onLoad(){
+        cr.onLoad();
         cr.setSiteName("AI Lover Commands");
         cr.setSiteUrl("https://ai-lover-cmd.vercel.app");
         cr.setColor("#a02bc9");
@@ -8,12 +11,25 @@ class AI{
         cr.add_btn_top();
     }
 
+    act_menu(id){
+        this.cur_menu=id;
+        $(".m-menu").removeClass("active");
+        $("#m-"+id).addClass("active");
+    }
+
+    home(){
+        this.act_menu("home");
+        this.cmd.show();
+    }
+
     show_contact(){
         cr.show_contact();
+        this.act_menu("contact");
     }
 
     show_about(){
         cr.get("about/"+cr.lang+".html?v="+cr.ver,(data)=>{
+            ai.act_menu("about");
             $("#ai_content").html(data);
             cr.top();
         });
@@ -36,15 +52,26 @@ class AI{
     }
 
     show_setting(){
-        cr.show_setting();
+        cr.show_setting((setting)=>{
+            if(ai.cur_menu=="home"){
+                ai.cmd.all_cmd=[];
+                ai.cmd.show();
+            }
+
+            if(ai.cur_menu=="about"){
+                ai.show_about();
+            }
+        });
     }
 
     show_pp(){
+        this.act_menu("pp");
         cr.show_pp("#ai_content");
         cr.top();
     }
 
     show_tos(){
+        this.act_menu("tos");
         cr.show_tos("#ai_content");
         cr.top();
     }
@@ -68,6 +95,5 @@ var ai;
 $(document).ready(function() {
     ai=new AI();
     ai.onLoad();
-    cr.onLoad();
 });
 

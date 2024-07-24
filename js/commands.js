@@ -141,20 +141,20 @@ class AI_Command{
     load_data(data){
         var html='';
         html+='<div class="container mt-5">';
-            html+='<h1 class="mb-4">AI Lover Command List';
+            html+='<h1 class="mb-4">'+cr.l("cmd_list","AI Lover Command List");
                 if(cr.dev) html+='<button class="btn btn-light btn-sm  float-right m-1 btn-type-show" onclick="ai.download();return false;"><i class="fas fa-download"></i> Download</button>';
                 if(cr.dev) html+='<button class="btn btn-light btn-sm  float-right m-1 btn-type-show" onclick="ai.cmd.add();return false;"><i class="fas fa-plus-circle"></i> Add</button>';
-                html+='<button class="btn btn-light btn-sm '+(this.type_show==="list" ? "active" : "")+' float-right m-1 btn-type-show" onclick="ai.cmd.show_list()" id="btn-show-list"><i class="fas fa-list-alt"></i> List</button>';
-                html+='<button class="btn btn-light btn-sm '+(this.type_show==="grid" ? "active" : "")+'  float-right m-1 btn-type-show" onclick="ai.cmd.show_grid()" id="btn-show-grid"><i class="fas fa-th"></i> Grid</button>';
+                html+='<button class="btn btn-light btn-sm '+(this.type_show==="list" ? "active" : "")+' float-right m-1 btn-type-show" onclick="ai.cmd.show_list()" id="btn-show-list"><i class="fas fa-list-alt"></i> '+cr.l("btn_list","List")+'</button>';
+                html+='<button class="btn btn-light btn-sm '+(this.type_show==="grid" ? "active" : "")+'  float-right m-1 btn-type-show" onclick="ai.cmd.show_grid()" id="btn-show-grid"><i class="fas fa-th"></i> '+cr.l("btn_grid","Grid")+'</button>';
             html+='</h1>';
 
             html+='<div class="command-section">';
-                html+='<h2>Basic Commands</h2>';
+                html+='<h2>'+cr.l("cmd_chat","Basic Commands")+'</h2>';
                 html+='<div class="row" id="list_cmd_basic"></div>';
             html+='</div>';
 
             html+='<div class="command-section">';
-                html+='<h2>Advanced Commands</h2>';
+                html+='<h2>'+cr.l("cmd_control","Advanced Commands")+'</h2>';
                 html+='<div class="row" id="list_cmd_advanced"></div>';
             html+='</div>';
 
@@ -254,7 +254,7 @@ class AI_Command{
         var html='';
         html+='<div class="container mt-5">';
             html+='<div class="command-section">';
-                html+='<h2>All Commands</h2>';
+                html+='<h2>'+cr.l("cmd_list","All Commands")+'</h2>';
                 html+='<table id="table_cmd_ai" class="table table-striped table-hover table-sm"><thead><tr><th>Key</th><th>Msg</th></tr></thead><tbody id="list_all_cmd"></tbody></table>';
             html+='</div>';
         html+='</div>';

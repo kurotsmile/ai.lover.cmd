@@ -3,7 +3,7 @@ class AI{
     cur_menu="home";
 
     onLoad(){
-        cr.onLoad();
+        cr.onLoad(true);
         cr.setColor("#a02bc9");
         cr.add_btn_top();
         cr.setSiteName("AI Lover Commands");

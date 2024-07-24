@@ -1,1 +1,18 @@
-{"home":"Home","setting":"Settings","contact":"Contact","all_cmd":"All Commands","btn_grid":"Grid View","btn_list":"List View","cmd_basic":"Basic Commands"}
+{
+    "home": "Home",
+    "setting": "Settings",
+    "contact": "Contact",
+    "all_cmd": "All Commands",
+    "btn_grid": "Grid View",
+    "btn_list": "List View",
+    "cmd_basic": "Basic Commands",
+    "about": "About",
+    "tos": "Terms of Service",
+    "pp": "Privacy Policy",
+    "donation": "Donation",
+    "copyright": "Copyright © Trần Thiện Thanh",
+    "cmd_list": "Command List",
+    "cmd_chat": "Chat Commands",
+    "cmd_control": "Control Commands"
+  }
+  

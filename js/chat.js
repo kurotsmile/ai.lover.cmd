@@ -36,7 +36,7 @@ class Ai_Chat{
             $.each(ai.cmd.all_cmd,function(index,c){
                 var k_key=txt_chat.trim().toLowerCase();
                 var k_chat=c.key.trim().toLowerCase();
-                if(k_key.indexOf(k_chat)){
+                if(k_chat.indexOf(k_key)){
                     ai.chat.list_return.push(c);
                 }
             });

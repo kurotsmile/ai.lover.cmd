@@ -92,6 +92,14 @@ class AI{
     show_all_cmd(){
         ai.cmd.show_all();
     }
+
+    download(){
+        var data={
+            "all_item":ai.cmd.all_cmd,
+            "collection": "chat-"+cr.lang
+        }
+        cr.download(data,data.collection);
+    }
 }
 
 var ai;

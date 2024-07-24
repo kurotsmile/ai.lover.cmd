@@ -3,6 +3,9 @@ class Ai_Chat{
     list_return=[];
     type_return="=";
 
+    chat_limit_pay=10;
+    chat_count_pay=0;
+
     chat(){
         var txt_chat=$("#inp_chat").val();
         $("#inp_chat").val('');
@@ -38,6 +41,12 @@ class Ai_Chat{
     }
 
     act_chat(data){
+        this.chat_count_pay++;
+        if(this.chat_count_pay>=this.chat_limit_pay){
+            cr.show_pay("Continue chatting","Buy a chat package to use it forever without interruption","3.99","buy_chat","true");
+            this.chat_count_pay=0;
+        }
+
         if(data==null){
             $("#txt_banner").html("None Chat!");
             return false;

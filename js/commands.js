@@ -142,6 +142,8 @@ class AI_Command{
         var html='';
         html+='<div class="container mt-5">';
             html+='<h1 class="mb-4">AI Lover Command List';
+                if(cr.dev) html+='<button class="btn btn-light btn-sm  float-right m-1 btn-type-show" onclick="ai.download();return false;"><i class="fas fa-download"></i> Download</button>';
+                if(cr.dev) html+='<button class="btn btn-light btn-sm  float-right m-1 btn-type-show" onclick="ai.cmd.add();return false;"><i class="fas fa-plus-circle"></i> Add</button>';
                 html+='<button class="btn btn-light btn-sm '+(this.type_show==="list" ? "active" : "")+' float-right m-1 btn-type-show" onclick="ai.cmd.show_list()" id="btn-show-list"><i class="fas fa-list-alt"></i> List</button>';
                 html+='<button class="btn btn-light btn-sm '+(this.type_show==="grid" ? "active" : "")+'  float-right m-1 btn-type-show" onclick="ai.cmd.show_grid()" id="btn-show-grid"><i class="fas fa-th"></i> Grid</button>';
             html+='</h1>';
@@ -262,6 +264,21 @@ class AI_Command{
             let table = new DataTable('#table_cmd_ai');
             table.stateSave=true;
         },1000);
+    }
+    
+    add(){
+        var objOld=this.all_cmd[0];
+        var id_new=cr.create_id();
+        var dataNew=cr_data.clear_value(objOld);
+        dataNew["user"]=this.all_cmd[0].user;
+        dataNew["id"]=id_new;
+        dataNew["id_import"]=id_new;
+        cr_data.add(dataNew,(data)=>{
+            ai.cmd.all_cmd.push(data);
+            if(ai.cur_menu=="home"){
+                ai.cmd.show();
+            }
+        });
     }
 }
 var cmd=new AI_Command();

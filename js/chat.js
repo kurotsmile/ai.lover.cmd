@@ -8,6 +8,15 @@ class Ai_Chat{
 
     chat_cur=null;
 
+    onLoad(){
+        $('#inp_chat').on('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                ai.chat.chat();
+            }
+        });
+    }
+
     chat(){
         var txt_chat=$("#inp_chat").val();
         $("#inp_chat").val('');
@@ -57,12 +66,14 @@ class Ai_Chat{
         }
 
         var html='';
-        html+=data.msg;
-        html+='<br/><button class="btn btn-sm btn-light m-1" onclick="ai.chat.show_list_return();return false;"><i class="fas '+(this.type_return==="=" ? 'fa-comment-alt': 'fa-comments')+'"></i> '+ai.chat.list_return.length+'</button>';
-        html+='<button class="btn btn-sm btn-light m-1" onclick="ai.chat.clone();return false;"><i class="fas fa-clone"></i> Clone</button>';
-        html+='<button class="btn btn-sm btn-light m-1" onclick="ai.chat.delete_chat();return false;"><i class="fas fa-backspace"></i> Delete</button>';
+        html+='<div id="msg_chat_ai"></div>';
+        html+='<br/><br/><button class="btn btn-sm btn-light m-1 animate__animated animate__bounceIn" onclick="ai.chat.show_list_return();return false;"><i class="fas '+(this.type_return==="=" ? 'fa-comment-alt': 'fa-comments')+'"></i> '+ai.chat.list_return.length+'</button>';
+        html+='<button class="btn btn-sm btn-light m-1 animate__animated animate__bounceIn" onclick="ai.chat.clone();return false;"><i class="fas fa-clone"></i> Clone</button>';
+        html+='<button class="btn btn-sm btn-light m-1 animate__animated animate__bounceIn" onclick="ai.chat.delete_chat();return false;"><i class="fas fa-backspace"></i> Delete</button>';
+        html+='<button class="btn btn-sm btn-light m-1 animate__animated animate__bounceIn" onclick="ai.chat.close();return false;"><i class="fas fa-times-circle"></i> Close</button>';
         if(data.link!="") window.open(data.link,"_blank");
         $("#txt_banner").html(html);
+        ai.typeEffect("#msg_chat_ai",data.msg,20);
     }
 
     show_list_return(){
@@ -102,6 +113,13 @@ class Ai_Chat{
     delete_chat(){
         ai.cmd.delete_cmd(parseInt(this.chat_cur["index"]));
         this.chat_cur=null;
+        ai.banner_welcome();
+    }
+
+    close(){
+        this.chat_cur=null;
+        ai.banner_welcome();
+        $("#inp_chat").val('');
     }
 }
 var chat=new Ai_Chat();

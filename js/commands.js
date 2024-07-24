@@ -186,7 +186,7 @@ class AI_Command{
         $.each(cr.shuffle(this.filter_data(data,'basic',63)),function(index,c){
             var empC=ai.cmd.box_item_list(c);
             $(empC).click(function(){
-                cr_data.info(c);
+                cr_data.info(c,ai.cmd.get_field_customer());
             });
             $("#all_item_basic").append(empC);
         });
@@ -196,7 +196,7 @@ class AI_Command{
         $.each(cr.shuffle(this.filter_data(data,'advanced',63)),function(index,c){
             var empC=ai.cmd.box_item_list(c);
             $(empC).click(function(){
-                cr_data.info(c);
+                cr_data.info(c,ai.cmd.get_field_customer());
             });
             $("#all_item_advanced").append(empC);
         });
@@ -300,7 +300,6 @@ class AI_Command{
     }
 
     delete_cmd(index){
-        alert(index);
         ai.cmd.all_cmd.splice(index,1);
         ai.cmd.show();
     }

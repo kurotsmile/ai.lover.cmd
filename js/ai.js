@@ -4,11 +4,13 @@ class AI{
 
     onLoad(){
         cr.onLoad();
+        cr.setColor("#a02bc9");
+        cr.add_btn_top();
         cr.setSiteName("AI Lover Commands");
         cr.setSiteUrl("https://ai-lover-cmd.vercel.app");
-        cr.setColor("#a02bc9");
         cr.loadJs("js/commands.js","cmd","show");
-        cr.add_btn_top();
+        cr.loadJs("js/chat.js","chat","onLoad");
+        this.banner_welcome();
     }
 
     act_menu(id){
@@ -46,7 +48,7 @@ class AI{
                 </div>`);
 
         $(empItem).click(function(){
-            cr_data.info(data);
+            cr_data.info(data,ai.cmd.get_field_customer());
         });
         return empItem;
     }
@@ -98,6 +100,21 @@ class AI{
     reload(){
         if(ai.cur_menu=="home") ai.cmd.show();
         if(ai.cur_menu=="about") ai.show_about();
+    }
+
+    banner_welcome(){
+        $("#txt_banner").html('<span class="h1">AI <i class="fas fa-heart animate__heartBeat animate__animated animate__infinite"></i> Lover Command</span>');
+    }
+
+    typeEffect(element, text, speed) {
+        let index = 0;
+        const intervalId = setInterval(() => {
+            $(element).text($(element).text() + text[index]);
+            index++;
+            if (index >= text.length) {
+                clearInterval(intervalId);
+            }
+        }, speed);
     }
 }
 

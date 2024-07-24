@@ -6,6 +6,10 @@ h1, h2 {
     color: #333;
 }
 
+.h1{
+    font-weight: 900;
+}
+
 a {
     color: #a02bc9;
     margin: 0 10px;

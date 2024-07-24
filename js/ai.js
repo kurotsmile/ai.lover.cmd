@@ -88,6 +88,10 @@ class AI{
     ai_chat(){
         cr.loadJs("js/chat.js","chat","chat");
     }
+
+    show_all_cmd(){
+        ai.cmd.show_all();
+    }
 }
 
 var ai;

@@ -103,7 +103,7 @@ class AI_Command{
             this.url_data_chat=cr.random(this.url_data[cr.lang]);
             cr.get_json(this.url_data_chat,(data)=>{
                 ai.cmd.all_cmd=data["all_item"];
-                ai.cmd.load_data(data);
+                ai.cmd.load_data(ai.cmd.all_cmd);
             },(error)=>{
                 swal.fire({
                     icon:"error",
@@ -159,8 +159,8 @@ class AI_Command{
         html+='</div>';
 
         $("#ai_content").html(html);
-        $("#cm_length").html(ai.cmd.all_cmd.length);
-        ai.cmd.load_grid(ai.cmd.all_cmd);
+        $("#cm_length").html(data.length);
+        ai.cmd.load_grid(data);
     }
 
     load_grid(data){
@@ -177,7 +177,7 @@ class AI_Command{
 
     load_list(data){
         $("#list_cmd_basic").html('');
-        $("#list_cmd_basic").html('<div class="col-12"><table  class="table table-striped table-hover table-sm"><tbody id="all_item_basic"></tbody></table></div>');
+        $("#list_cmd_basic").html('<div class="col-12"><table class="table table-striped table-hover table-sm"><tbody id="all_item_basic"></tbody></table></div>');
         $.each(cr.shuffle(this.filter_data(data,'basic',63)),function(index,c){
             var empC=ai.cmd.box_item_list(c);
             $(empC).click(function(){
@@ -187,7 +187,7 @@ class AI_Command{
         });
         
         $("#list_cmd_advanced").html('');
-        $("#list_cmd_advanced").html('<div class="col-12"><table  class="table table-striped table-hover table-sm"><tbody id="all_item_advanced"></tbody></table></div>');
+        $("#list_cmd_advanced").html('<div class="col-12"><table class="table table-striped table-hover table-sm"><tbody id="all_item_advanced"></tbody></table></div>');
         $.each(cr.shuffle(this.filter_data(data,'advanced',63)),function(index,c){
             var empC=ai.cmd.box_item_list(c);
             $(empC).click(function(){
@@ -201,7 +201,7 @@ class AI_Command{
         var empItem=$(`
             <tr role="button">
                 <td>${c.key}</td>
-                <td>${c.msg}</td>
+                <td><small>${c.msg}</small></td>
             </tr>
         `);
         return empItem;
@@ -243,6 +243,25 @@ class AI_Command{
             if(count>length) return false;
         });
         return list_cmd;
+    }
+
+    show_all(){
+        var html='';
+        html+='<div class="container mt-5">';
+            html+='<div class="command-section">';
+                html+='<h2>All Commands</h2>';
+                html+='<table id="table_cmd_ai" class="table table-striped table-hover table-sm"><thead><tr><th>Key</th><th>Msg</th></tr></thead><tbody id="list_all_cmd"></tbody></table>';
+            html+='</div>';
+        html+='</div>';
+        $("#ai_content").html(html);
+        $.each(this.all_cmd,function(index,c){
+            $("#list_all_cmd").append(ai.cmd.box_item_list(c));
+        });
+
+        setInterval(()=>{
+            let table = new DataTable('#table_cmd_ai');
+            table.stateSave=true;
+        },1000);
     }
 }
 var cmd=new AI_Command();

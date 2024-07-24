@@ -36,6 +36,7 @@
 
     <link rel="stylesheet" href="styles.css"/>
     <script src="Carrot-Framework-Web/Carrot.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.0/css/dataTables.dataTables.min.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -49,7 +50,7 @@
                     <a class="nav-link lang" key_lang="home" href="#" onclick="ai.home();return false;">Home</a>
                 </li>
                 <li class="nav-item m-menu" id="m-cmd">
-                    <a class="nav-link" href="#"><l class="lang" key_lang="all_cmd">Commands</l> <span class="badge badge-pill bg-white align-text-bottom" id="cm_length">0</span></a>
+                    <a class="nav-link" href="#" onclick="ai.show_all_cmd();return false;"><l class="lang" key_lang="all_cmd">Commands</l> <span class="badge badge-pill bg-white align-text-bottom" id="cm_length">0</span></a>
                 </li>
                 <li class="nav-item m-menu" id="m-about">
                     <a class="nav-link" href="#" onclick="ai.show_about();return false;">About</a>
@@ -154,5 +155,6 @@
     <script src="js/sweetalert2@10.js"></script>
     <script src="js/animate.css.min.js"></script>
     <script src="js/ai.js"></script>
+    <script src="https://cdn.datatables.net/2.1.0/js/dataTables.min.js"></script>
 </body>
 </html>

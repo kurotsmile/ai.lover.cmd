@@ -1,23 +1,72 @@
 class Ai_Chat{
 
+    list_return=[];
+    type_return="=";
+
     chat(){
         var txt_chat=$("#inp_chat").val();
         $("#inp_chat").val('');
 
-        var list_return=[];
+        this.list_return=[];
         $.each(ai.cmd.all_cmd,function(index,c){
             if(txt_chat.trim().toLowerCase()==c.key.trim().toLowerCase()){
-                list_return.push(c);
+                ai.chat.list_return.push(c);
             }
         });
 
-        if(list_return.length>0){
-            var c=cr.random(list_return);
-            if(c.link!="") window.open(c.link,"_blank");
-            $("#txt_banner").html(c.msg);
+        if(this.list_return.length>0){
+            var c=cr.random(this.list_return);
+            this.type_return="=";
+            this.act_chat(c);
         }else{
-            $("#txt_banner").html("None Chat!");
+            $.each(ai.cmd.all_cmd,function(index,c){
+                var k_key=txt_chat.trim().toLowerCase();
+                var k_chat=c.key.trim().toLowerCase();
+                if(k_key.indexOf(k_chat)){
+                    ai.chat.list_return.push(c);
+                }
+            });
+
+            if(ai.chat.list_return.length>0){
+                var c=cr.random(ai.chat.list_return);
+                this.type_return="~";
+                this.act_chat(c);
+            }else{
+                this.act_chat(null);
+            }
         }
+    }
+
+    act_chat(data){
+        if(data==null){
+            $("#txt_banner").html("None Chat!");
+            return false;
+        }
+
+        var html='';
+        html+=data.msg;
+        html+=' <button class="btn btn-sm btn-light" onclick="ai.chat.show_list_return();return false;"><i class="fas '+(this.type_return==="=" ? 'fa-comment-alt': 'fa-comments')+'"></i> '+ai.chat.list_return.length+'</button>';
+        if(data.link!="") window.open(data.link,"_blank");
+        $("#txt_banner").html(html);
+    }
+
+    show_list_return(){
+        var html='';
+        html='<table class="table table-striped table-hover table-sm">';
+        html+='<tbody id="all_cmd_return"></tbody>';
+        html+='<table>';
+
+        swal.fire({
+            title:"List Return",
+            html:html,
+            iconColor: cr.color_btn,
+            confirmButtonColor: cr.color_btn,
+            didOpen:()=>{
+                $.each(ai.chat.list_return,function(index,c){
+                    $("#all_cmd_return").append(ai.cmd.box_item_list(c));
+                });
+            }
+        });
     }
 }
 var chat=new Ai_Chat();

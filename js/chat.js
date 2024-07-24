@@ -6,6 +6,8 @@ class Ai_Chat{
     chat_limit_pay=10;
     chat_count_pay=0;
 
+    chat_cur=null;
+
     chat(){
         var txt_chat=$("#inp_chat").val();
         $("#inp_chat").val('');
@@ -41,27 +43,31 @@ class Ai_Chat{
     }
 
     act_chat(data){
+        this.chat_cur=data;
         this.chat_count_pay++;
         if(this.chat_count_pay>=this.chat_limit_pay){
-            cr.show_pay("Continue chatting","Buy a chat package to use it forever without interruption","3.99","buy_chat","true");
+            cr.show_pay("Continue chatting","Buy a chat package to use it forever without interruption","3.99","true","buy_chat");
             this.chat_count_pay=0;
         }
 
         if(data==null){
             $("#txt_banner").html("None Chat!");
+            ai.chat.chat_cur=null;
             return false;
         }
 
         var html='';
         html+=data.msg;
-        html+=' <button class="btn btn-sm btn-light" onclick="ai.chat.show_list_return();return false;"><i class="fas '+(this.type_return==="=" ? 'fa-comment-alt': 'fa-comments')+'"></i> '+ai.chat.list_return.length+'</button>';
+        html+='<br/><button class="btn btn-sm btn-light m-1" onclick="ai.chat.show_list_return();return false;"><i class="fas '+(this.type_return==="=" ? 'fa-comment-alt': 'fa-comments')+'"></i> '+ai.chat.list_return.length+'</button>';
+        html+='<button class="btn btn-sm btn-light m-1" onclick="ai.chat.clone();return false;"><i class="fas fa-clone"></i> Clone</button>';
+        html+='<button class="btn btn-sm btn-light m-1" onclick="ai.chat.delete_chat();return false;"><i class="fas fa-backspace"></i> Delete</button>';
         if(data.link!="") window.open(data.link,"_blank");
         $("#txt_banner").html(html);
     }
 
     show_list_return(){
         var html='';
-        html='<table class="table table-striped table-hover table-sm">';
+        html='<table class="table table-striped table-hover table-sm text-left">';
         html+='<tbody id="all_cmd_return"></tbody>';
         html+='<table>';
 
@@ -72,10 +78,30 @@ class Ai_Chat{
             confirmButtonColor: cr.color_btn,
             didOpen:()=>{
                 $.each(ai.chat.list_return,function(index,c){
-                    $("#all_cmd_return").append(ai.cmd.box_item_list(c));
+                    var c_item=ai.cmd.box_item_list(c);
+                    $(c_item).click(()=>{
+                        Swal.close();
+                        cr_data.info(c);
+                    });
+                    $("#all_cmd_return").append(c_item);
                 });
             }
         });
+    }
+
+    clone(){
+        var objClone= Object.assign({},this.chat_cur);
+        var id_new=cr.create_id();
+        objClone["id"]=id_new;
+        objClone["id_import"]=id_new;
+        cr_data.edit(objClone,(data)=>{
+            ai.cmd.add_data(data);
+        },ai.cmd.get_field_customer());
+    }
+
+    delete_chat(){
+        ai.cmd.delete_cmd(parseInt(this.chat_cur["index"]));
+        this.chat_cur=null;
     }
 }
 var chat=new Ai_Chat();

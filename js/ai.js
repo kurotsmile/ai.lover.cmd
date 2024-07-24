@@ -53,14 +53,8 @@ class AI{
 
     show_setting(){
         cr.show_setting((setting)=>{
-            if(ai.cur_menu=="home"){
-                ai.cmd.all_cmd=[];
-                ai.cmd.show();
-            }
-
-            if(ai.cur_menu=="about"){
-                ai.show_about();
-            }
+            ai.cmd.all_cmd=[];
+            ai.reload();
         });
     }
 
@@ -99,6 +93,11 @@ class AI{
             "collection": "chat-"+cr.lang
         }
         cr.download(data,data.collection);
+    }
+
+    reload(){
+        if(ai.cur_menu=="home") ai.cmd.show();
+        if(ai.cur_menu=="about") ai.show_about();
     }
 }
 

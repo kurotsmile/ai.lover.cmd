@@ -162,6 +162,9 @@ class AI_Command{
 
         $("#ai_content").html(html);
         $("#cm_length").html(data.length);
+        $.each(data,function(index,c){
+            c["index"]=index;
+        });
         ai.cmd.load_grid(data);
     }
 
@@ -274,11 +277,32 @@ class AI_Command{
         dataNew["id"]=id_new;
         dataNew["id_import"]=id_new;
         cr_data.add(dataNew,(data)=>{
-            ai.cmd.all_cmd.push(data);
-            if(ai.cur_menu=="home"){
-                ai.cmd.show();
-            }
-        });
+            ai.cmd.add_data(data);
+        },this.get_field_customer());
+    }
+
+    add_data(data){
+        ai.cmd.all_cmd.push(data);
+        ai.cmd.show();
+    }
+
+    get_field_customer(){
+        var fieldCustomer={};
+        var faces=[];
+        for(var i=0;i<=18;i++){
+            faces.push({value:i,label:"Face "+i});
+        }
+        var sex={type:"list",datas:[{value:0,label:"Boy"},{value:1,label:"Girl"}]};
+        fieldCustomer["face"]={"type":"list",datas:faces};
+        fieldCustomer["sex_user"]=sex;
+        fieldCustomer["sex_character"]=sex;
+        return fieldCustomer;
+    }
+
+    delete_cmd(index){
+        alert(index);
+        ai.cmd.all_cmd.splice(index,1);
+        ai.cmd.show();
     }
 }
 var cmd=new AI_Command();

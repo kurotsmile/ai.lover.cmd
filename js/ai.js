@@ -54,10 +54,19 @@ class AI{
     }
 
     show_setting(){
+        var html='';
+
+        if(cr.dev){
+            html+='<div class="form-group">';
+                html+='<label for="btn_site_mapp_file"><i class="fas fa-sitemap"></i> Site Map</label>';
+                html+='<div class="d-block mt-1 mb-1" id="btn_site_mapp_file"><button class="btn btn-sm btn-dark" onclick="ai.download_site_map();return false;"><i class="fas fa-download"></i> Download Site Map</button></div>';
+            html+='</div>';
+        }
+
         cr.show_setting((setting)=>{
             ai.cmd.all_cmd=[];
             ai.reload();
-        });
+        },html);
     }
 
     show_pp(){
@@ -115,6 +124,14 @@ class AI{
                 clearInterval(intervalId);
             }
         }, speed);
+    }
+
+    download_site_map(){
+        var list_link=[];
+        $.each(ai.cmd.all_cmd,function(index,c){
+            list_link.push(cr.site_url+"/?c="+c.id_import);
+        });
+        cr.download_sitemap(list_link);
     }
 }
 

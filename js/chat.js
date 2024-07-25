@@ -68,9 +68,10 @@ class Ai_Chat{
         var html='';
         html+='<div id="msg_chat_ai"></div>';
         html+='<br/><br/><button class="btn btn-sm btn-light m-1 animate__animated animate__bounceIn" onclick="ai.chat.show_list_return();return false;"><i class="fas '+(this.type_return==="=" ? 'fa-comment-alt': 'fa-comments')+'"></i> '+ai.chat.list_return.length+'</button>';
-        html+='<button class="btn btn-sm btn-light m-1 animate__animated animate__bounceIn" onclick="ai.chat.clone();return false;"><i class="fas fa-clone"></i> Clone</button>';
-        html+='<button class="btn btn-sm btn-light m-1 animate__animated animate__bounceIn" onclick="ai.chat.delete_chat();return false;"><i class="fas fa-backspace"></i> Delete</button>';
-        html+='<button class="btn btn-sm btn-light m-1 animate__animated animate__bounceIn" onclick="ai.chat.close();return false;"><i class="fas fa-times-circle"></i> Close</button>';
+        html+='<button class="btn btn-sm btn-light m-1 animate__animated animate__bounceIn" onclick="ai.chat.info();return false;"><i class="fas fa-info-circle"></i> '+cr.l("info","Info")+'</button>';
+        html+='<button class="btn btn-sm btn-light m-1 animate__animated animate__bounceIn" onclick="ai.chat.clone();return false;"><i class="fas fa-clone"></i> '+cr.l("clone","Clone")+'</button>';
+        html+='<button class="btn btn-sm btn-light m-1 animate__animated animate__bounceIn" onclick="ai.chat.delete_chat();return false;"><i class="fas fa-backspace"></i> '+cr.l("delete","Delete")+'</button>';
+        html+='<button class="btn btn-sm btn-light m-1 animate__animated animate__bounceIn" onclick="ai.chat.close();return false;"><i class="fas fa-times-circle"></i> '+cr.l("close","Close")+'</button>';
         if(data.link!="") window.open(data.link,"_blank");
         $("#txt_banner").html(html);
         ai.typeEffect("#msg_chat_ai",data.msg,20);
@@ -120,6 +121,10 @@ class Ai_Chat{
         this.chat_cur=null;
         ai.banner_welcome();
         $("#inp_chat").val('');
+    }
+
+    info(){
+        cr_data.info(this.chat_cur,ai.cmd.get_field_customer());
     }
 }
 var chat=new Ai_Chat();

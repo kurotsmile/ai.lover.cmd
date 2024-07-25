@@ -1,0 +1,68 @@
+[
+    {
+        "name":"Ai lover",
+        "icon":"images/ai_lover.png",
+        "links":[
+            {
+                "icon":"fab fa-android",
+                "link":"https://amante-de-la-ia.en.uptodown.com/android"
+            }
+        ],
+        "color":"#03346E"
+    },
+    {
+        "name":"Cute Virtual Lover",
+        "icon":"images/cute_lover.png",
+        "links":[
+            {
+                "icon":"fab fa-android",
+                "link":"https://cute-virtual-lover.en.uptodown.com/android"
+            }
+        ],
+        "color":"#DEAC80"
+    },
+    {
+        "name":"Cute virtual assistant",
+        "icon":"images/cute_virtual_assistant.png",
+        "links":[
+            {
+                "icon":"fab fa-android",
+                "link":"https://cute-virtual-assistant.en.uptodown.com/android"
+            }
+        ],
+        "color":"#B692C2"
+    },
+    {
+        "name":"Amante virtual 2D",
+        "icon":"images/virtuallover.png",
+        "links":[
+            {
+                "icon":"fab fa-android",
+                "link":"https://virtual-lover-2d.en.uptodown.com/android"
+            }
+        ],
+        "color":"#694F8E"
+    },
+    {
+        "name":"Mi amante",
+        "icon":"images/my_boo.png",
+        "links":[
+            {
+                "icon":"fab fa-android",
+                "link":"https://com-carrot-mylover.en.uptodown.com/android"
+            }
+        ],
+        "color":"#891652"
+    },
+    {
+        "name":"My Virtual Lover",
+        "icon":"images/MyVirtualLover.png",
+        "links":[
+            {
+                "icon":"fab fa-android",
+                "link":"https://my-virtual-lover.en.uptodown.com/android"
+            }
+        ],
+        "color":"#240A34"
+    }
+]

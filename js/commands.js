@@ -1,5 +1,6 @@
 class AI_Command{
 
+    leng_show=31;
     url_data_chat="";
     all_cmd=[];
     url_data={
@@ -170,12 +171,12 @@ class AI_Command{
 
     load_grid(data){
         $("#list_cmd_basic").html('');
-        $.each(cr.shuffle(this.filter_data(data,'basic',63)),function(index,c){
+        $.each(cr.shuffle(this.filter_data(data,'basic',this.leng_show)),function(index,c){
             $("#list_cmd_basic").append(ai.box_item(c));
         });
         
         $("#list_cmd_advanced").html('');
-        $.each(cr.shuffle(this.filter_data(data,'advanced',63)),function(index,c){
+        $.each(cr.shuffle(this.filter_data(data,'advanced',this.leng_show)),function(index,c){
             $("#list_cmd_advanced").append(ai.box_item(c));
         });
     }
@@ -183,7 +184,7 @@ class AI_Command{
     load_list(data){
         $("#list_cmd_basic").html('');
         $("#list_cmd_basic").html('<div class="col-12"><table class="table table-striped table-hover table-sm"><tbody id="all_item_basic"></tbody></table></div>');
-        $.each(cr.shuffle(this.filter_data(data,'basic',63)),function(index,c){
+        $.each(cr.shuffle(this.filter_data(data,'basic',this.leng_show)),function(index,c){
             var empC=ai.cmd.box_item_list(c);
             $(empC).click(function(){
                 cr_data.info(c,ai.cmd.get_field_customer());
@@ -193,7 +194,7 @@ class AI_Command{
         
         $("#list_cmd_advanced").html('');
         $("#list_cmd_advanced").html('<div class="col-12"><table class="table table-striped table-hover table-sm"><tbody id="all_item_advanced"></tbody></table></div>');
-        $.each(cr.shuffle(this.filter_data(data,'advanced',63)),function(index,c){
+        $.each(cr.shuffle(this.filter_data(data,'advanced',this.leng_show)),function(index,c){
             var empC=ai.cmd.box_item_list(c);
             $(empC).click(function(){
                 cr_data.info(c,ai.cmd.get_field_customer());

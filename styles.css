@@ -128,3 +128,16 @@ footer {
     margin-top: 10px;
 }
 
+.app_ai{
+    border-radius: 50px;
+}
+
+.app_ai .img-fluid{
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 62px;
+    transition:all 0.3s ease-out;
+}
+
+.app_ai:hover .img-fluid{
+    transform: rotate(13deg);
+}

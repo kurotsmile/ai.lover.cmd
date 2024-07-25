@@ -11,6 +11,7 @@ class AI{
         cr.loadJs("js/commands.js","cmd","show");
         cr.loadJs("js/chat.js","chat","onLoad");
         this.banner_welcome();
+        this.loadApps();
     }
 
     act_menu(id){
@@ -132,6 +133,42 @@ class AI{
             list_link.push(cr.site_url+"/?c="+c.id_import);
         });
         cr.download_sitemap(list_link);
+    }
+
+    box_app(data){
+        var appEmp=$(`
+            <div class="col-6 col-lg-3 col-md-6 mb-4">
+                <div class="app_ai card bg-dark text-white mb-2" style="background-color:${data.color} !important">
+                    <div class="row no-gutters">
+                        <div class="col-auto">
+                            <img src="${data.icon}" class="img-fluid" alt="${data.name}">
+                        </div>
+                        <div class="col">
+                            <div class="card-block px-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">${data.name}</h4>
+                                    <div class="card-text text-white"><i class="fas fa-cloud-download-alt"></i> Download</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        `);
+        var links=data.links;
+        $(appEmp).click(function(){
+            window.open(links[0].link,"_blank");
+        });
+        return appEmp;
+    }
+
+    loadApps(){
+        cr.get_json("apps.json",function(data){
+            $.each(data,function(index,app){
+                var emp=ai.box_app(app);
+                $("#apps").append(emp);
+            });
+        });
     }
 }
 

@@ -1,0 +1,27 @@
+{
+    "home": "Startseite",
+    "setting": "Einstellungen",
+    "contact": "Kontakt",
+    "all_cmd": "Alle Befehle",
+    "btn_grid": "Gitteransicht",
+    "btn_list": "Listenansicht",
+    "cmd_basic": "Grundbefehle",
+    "about": "Über",
+    "tos": "Nutzungsbedingungen",
+    "pp": "Datenschutzrichtlinie",
+    "donation": "Spende",
+    "copyright": "Urheberrecht © Trần Thiện Thanh",
+    "cmd_list": "Befehlsliste",
+    "cmd_chat": "Chat-Befehle",
+    "cmd_control": "Steuerbefehle",
+    "clone": "Klonen",
+    "delete": "Löschen",
+    "close": "Schließen",
+    "info": "Information",
+    "language": "Sprache ändern",
+    "language_tip": "Wählen Sie Ihr Land und Ihre Sprache",
+    "top_btn": "Nach oben scrollen Button",
+    "top_btn_tip": "Wählen Sie einen Stil für die Nach-oben-scrollen-Schaltfläche, der zu Ihnen passt",
+    "cancel": "Abbrechen"
+  }
+  

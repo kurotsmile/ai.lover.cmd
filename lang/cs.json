@@ -1,0 +1,27 @@
+{
+    "home": "Domů",
+    "setting": "Nastavení",
+    "contact": "Kontakt",
+    "all_cmd": "Všechny příkazy",
+    "btn_grid": "Zobrazení mřížky",
+    "btn_list": "Zobrazení seznamu",
+    "cmd_basic": "Základní příkazy",
+    "about": "O nás",
+    "tos": "Podmínky služby",
+    "pp": "Zásady ochrany osobních údajů",
+    "donation": "Dary",
+    "copyright": "Autorská práva © Trần Thiện Thanh",
+    "cmd_list": "Seznam příkazů",
+    "cmd_chat": "Příkazy chatu",
+    "cmd_control": "Ovládací příkazy",
+    "clone": "Klonovat",
+    "delete": "Smazat",
+    "close": "Zavřít",
+    "info": "Informace",
+    "language": "Změnit jazyk",
+    "language_tip": "Vyberte svou zemi a jazyk",
+    "top_btn": "Tlačítko pro návrat na začátek",
+    "top_btn_tip": "Vyberte styl tlačítka pro návrat na začátek, který vám vyhovuje",
+    "cancel": "Zrušit"
+  }
+  

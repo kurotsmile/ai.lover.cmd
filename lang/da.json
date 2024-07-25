@@ -1,0 +1,27 @@
+{
+    "home": "Hjem",
+    "setting": "Indstillinger",
+    "contact": "Kontakt",
+    "all_cmd": "Alle kommandoer",
+    "btn_grid": "Gittervisning",
+    "btn_list": "Listevisning",
+    "cmd_basic": "Grundlæggende kommandoer",
+    "about": "Om",
+    "tos": "Servicevilkår",
+    "pp": "Privatlivspolitik",
+    "donation": "Donation",
+    "copyright": "Ophavsret © Trần Thiện Thanh",
+    "cmd_list": "Kommando liste",
+    "cmd_chat": "Chat kommandoer",
+    "cmd_control": "Kontrol kommandoer",
+    "clone": "Klon",
+    "delete": "Slet",
+    "close": "Luk",
+    "info": "Information",
+    "language": "Skift sprog",
+    "language_tip": "Vælg dit land og sprog",
+    "top_btn": "Scroll til toppen knap",
+    "top_btn_tip": "Vælg en stil til scroll-til-top knappen, der passer til dig",
+    "cancel": "Annuller"
+  }
+  

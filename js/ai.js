@@ -110,6 +110,7 @@ class AI{
     reload(){
         if(ai.cur_menu=="home") ai.cmd.show();
         if(ai.cur_menu=="about") ai.show_about();
+        this.loadApps();
     }
 
     banner_welcome(){
@@ -147,7 +148,7 @@ class AI{
                             <div class="card-block px-2">
                                 <div class="card-body">
                                     <h4 class="card-title">${data.name}</h4>
-                                    <div class="card-text text-white"><i class="fas fa-cloud-download-alt"></i> Download</div>
+                                    <div class="card-text text-white fs-6"><small><i class="fas fa-cloud-download-alt"></i> ${cr.l("download","Download")}</small></div>
                                 </div>
                             </div>
                         </div>
@@ -163,6 +164,7 @@ class AI{
     }
 
     loadApps(){
+        $("#apps").html('');
         cr.get_json("apps.json",function(data){
             $.each(data,function(index,app){
                 var emp=ai.box_app(app);

@@ -7,6 +7,7 @@ class Ai_Chat{
     chat_count_pay=0;
 
     chat_cur=null;
+    buy_chat="false";
 
     onLoad(){
         $('#inp_chat').on('keydown', function(event) {
@@ -15,6 +16,7 @@ class Ai_Chat{
                 ai.chat.chat();
             }
         });
+        if(localStorage.getItem("buy_chat")!=null) this.buy_chat=localStorage.getItem("buy_chat");
     }
 
     chat(){
@@ -53,14 +55,17 @@ class Ai_Chat{
 
     act_chat(data){
         this.chat_cur=data;
-        this.chat_count_pay++;
-        if(this.chat_count_pay>=this.chat_limit_pay){
-            cr.show_pay("Continue chatting","Buy a chat package to use it forever without interruption","3.99","true","buy_chat");
-            this.chat_count_pay=0;
+
+        if(this.buy_chat=="false"){
+            this.chat_count_pay++;
+            if(this.chat_count_pay>=this.chat_limit_pay){
+                cr.show_pay(cr.l("pay_chat","Continue chatting"),cr.l("pay_chat_tip","Buy a chat package to use it forever without interruption"),"3.99","true","buy_chat");
+                this.chat_count_pay=0;
+            }
         }
 
         if(data==null){
-            $("#txt_banner").html("None Chat!");
+            $("#txt_banner").html(cr.l("none_chat","None Chat!"));
             ai.chat.chat_cur=null;
             return false;
         }

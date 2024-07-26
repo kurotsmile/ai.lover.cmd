@@ -10,7 +10,7 @@
   "tos": "Terms of Service",
   "pp": "Privacy Policy",
   "donation": "Donation",
-  "copyright": "Copyright © Trần Thiện Thanh",
+  "copyright": "All rights reserved by Trần Thiện Thanh",
   "cmd_list": "Command List",
   "cmd_chat": "Chat Commands",
   "cmd_control": "Control Commands",
@@ -21,6 +21,10 @@
   "language": "Change Language",
   "language_tip": "Select your country and language",
   "top_btn": "Scroll to Top Button",
-  "top_btn_tip": "Choose a style for the scroll-to-top button that suits you",
-  "cancel": "Cancel"
+  "top_btn_tip": "Choose the style for the scroll to top button that suits you",
+  "cancel": "Cancel",
+  "download": "Download",
+  "pay_chat": "Continue Chat",
+  "pay_chat_tip": "Purchase a chat package for unlimited, uninterrupted access",
+  "none_chat": "No related chats"
 }

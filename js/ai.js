@@ -12,6 +12,7 @@ class AI{
         cr.loadJs("js/chat.js","chat","onLoad");
         this.banner_welcome();
         this.loadApps();
+        cr.act_done_pay=this.pay_success;
     }
 
     act_menu(id){
@@ -171,6 +172,10 @@ class AI{
                 $("#apps").append(emp);
             });
         });
+    }
+
+    pay_success(){
+        ai.chat.buy_chat="true";
     }
 }
 

@@ -109,9 +109,9 @@ class AI{
     }
 
     reload(){
+        ai.loadApps();
         if(ai.cur_menu=="home") ai.cmd.show();
         if(ai.cur_menu=="about") ai.show_about();
-        this.loadApps();
     }
 
     banner_welcome(){
